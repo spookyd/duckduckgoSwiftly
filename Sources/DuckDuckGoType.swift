@@ -9,20 +9,24 @@
 import Foundation
 
 /// Represents the type of Duck Duck Go results
-public enum DuckDuckGoType {
-    case article, disambiguation, category, name, exclusive
+public enum DuckDuckGoType: String {
+    case article        = "A"
+    case disambiguation = "D"
+    case category       = "C"
+    case name           = "N"
+    case exclusive      = "E"
     
     static func fromString(_ shortName: String) -> DuckDuckGoType? {
         switch shortName {
-        case "A":
+        case DuckDuckGoType.article.rawValue:
             return .article
-        case "D":
+        case DuckDuckGoType.disambiguation.rawValue:
             return .disambiguation
-        case "C":
+        case DuckDuckGoType.category.rawValue:
             return .category
-        case "N":
+        case DuckDuckGoType.name.rawValue:
             return .name
-        case "E":
+        case DuckDuckGoType.exclusive.rawValue:
             return .exclusive
         default:
             return nil

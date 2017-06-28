@@ -51,20 +51,38 @@ public struct InstantAnswer {
 
 extension InstantAnswer {
     
+    enum Keys: String {
+        case abstract           = "Abstract"
+        case abstractText       = "AbstractSource"
+        case abstractSource     = "AbstractText"
+        case abstractURL        = "AbstractURL"
+        case imageURL           = "Image"
+        case heading            = "Heading"
+        case answer             = "Answer"
+        case answerType         = "AnswerType"
+        case definition         = "Definition"
+        case definitionSource   = "DefinitionSource"
+        case definitionURL      = "DefinitionURL"
+        case relatedTopics      = "RelatedTopics"
+        case results            = "Results"
+        case type               = "Type"
+        case redirect           = "Redirect"
+    }
+    
     public static func decode(from dictionary: [String: Any]) -> InstantAnswer {
         var result = InstantAnswer()
-        result.abstract = dictionary.parse("Abstract")
-        result.abstractSource = dictionary.parse("AbstractSource")
-        result.abstractText = dictionary.parse("AbstractText")
-        result.abstractURL = dictionary.parseURL("AbstractURL")
-        result.heading = dictionary.parse("Heading")
-        result.imageURL = dictionary.parseURL("Image")
-        result.answer = dictionary.parse("Answer")
-        result.answerType = dictionary.parse("AnswerType")
-        result.definition = dictionary.parse("Definition")
-        result.definitionSource = dictionary.parse("DefinitionSource")
-        result.definitionURL = dictionary.parseURL("DefinitionURL")
-        if let topics: [Any] = dictionary.parse("RelatedTopics") {
+        result.abstract = dictionary.parse(Keys.abstract.rawValue)
+        result.abstractText = dictionary.parse(Keys.abstractText.rawValue)
+        result.abstractSource = dictionary.parse(Keys.abstractSource.rawValue)
+        result.abstractURL = dictionary.parseURL(Keys.abstractURL.rawValue)
+        result.imageURL = dictionary.parseURL(Keys.imageURL.rawValue)
+        result.heading = dictionary.parse(Keys.heading.rawValue)
+        result.answer = dictionary.parse(Keys.answer.rawValue)
+        result.answerType = dictionary.parse(Keys.answerType.rawValue)
+        result.definition = dictionary.parse(Keys.definition.rawValue)
+        result.definitionSource = dictionary.parse(Keys.definitionSource.rawValue)
+        result.definitionURL = dictionary.parseURL(Keys.definitionURL.rawValue)
+        if let topics: [Any] = dictionary.parse(Keys.relatedTopics.rawValue) {
             var relatedTopics: [DuckDuckGoTopic] = []
             for topic in topics {
                 if let topicDictionary = topic as? [String: Any] {
@@ -75,7 +93,7 @@ extension InstantAnswer {
             }
             result.relatedTopics = relatedTopics
         }
-        if let topics: [Any] = dictionary.parse("Results") {
+        if let topics: [Any] = dictionary.parse(Keys.results.rawValue) {
             var relatedTopics: [DuckDuckGoTopic] = []
             for topic in topics {
                 if let topicDictionary = topic as? [String: Any] {
@@ -86,10 +104,10 @@ extension InstantAnswer {
             }
             result.results = relatedTopics
         }
-        if let shortName: String = dictionary.parse("Type") {
+        if let shortName: String = dictionary.parse(Keys.type.rawValue) {
             result.type = DuckDuckGoType.fromString(shortName)
         }
-        result.redirect = dictionary.parseURL("Redirect")
+        result.redirect = dictionary.parseURL(Keys.redirect.rawValue)
         return result
     }
     

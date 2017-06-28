@@ -71,13 +71,8 @@ extension Dictionary {
         return self.map {
             "\($0)=\($1)"
             }.reduce("") {
-                if $0.characters.count == 0 {
-                    return "\($0)\($1)"
-                } else {
-                    return "\($0)&\($1)"
-                }
+                $0.characters.count == 0 ? "\($1)" : "\($0)&\($1)"
         }
-
     }
 
 }

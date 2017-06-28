@@ -3,7 +3,7 @@
 //  DuckDuckGoSwiftly
 //
 //  Created by Luke Davis on 6/23/17.
-//
+//  Copyright © 2017 Lucky 13 Technologies, LLC. All rights reserved.
 //
 
 @testable import DuckDuckGoSwiftly

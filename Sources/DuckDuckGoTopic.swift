@@ -21,14 +21,21 @@ public struct DuckDuckGoTopic {
 
 extension DuckDuckGoTopic {
     
+    enum Keys: String {
+        case result     = "Result"
+        case firstURL   = "FirstURL"
+        case icon       = "Icon"
+        case text       = "Text"
+    }
+    
     public static func decode(from dicitionary: [String: Any]) -> DuckDuckGoTopic? {
         var result = DuckDuckGoTopic()
-        result.firstURL = dicitionary.parseURL("FirstURL")
-        if let iconDictionary: [String: Any] = dicitionary.parse("Icon") {
+        result.result = dicitionary.parse(Keys.result.rawValue)
+        result.firstURL = dicitionary.parseURL(Keys.firstURL.rawValue)
+        if let iconDictionary: [String: Any] = dicitionary.parse(Keys.icon.rawValue) {
             result.icon = DuckDuckGoIcon.decode(from: iconDictionary)
         }
-        result.result = dicitionary.parse("Result")
-        result.text = dicitionary.parse("Text")
+        result.text = dicitionary.parse(Keys.text.rawValue)
         return result
     }
     
