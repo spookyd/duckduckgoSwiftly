@@ -7,6 +7,7 @@ xcode_sdk: iphonesimulator10.3
 
 before_install:
     - swift package generate-xcodeproj
+    - carthage bootstrap --cache-builds
 
 script:
     - xcodebuild clean build test -project DuckDuckGoSwiftly.xcodeproj -scheme DuckDuckGoSwiftly
