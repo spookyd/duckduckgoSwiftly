@@ -85,10 +85,9 @@ extension InstantAnswer {
         if let topics: [Any] = dictionary.parse(Keys.relatedTopics.rawValue) {
             var relatedTopics: [DuckDuckGoTopic] = []
             for topic in topics {
-                if let topicDictionary = topic as? [String: Any] {
-                    if let topicParsed = DuckDuckGoTopic.decode(from: topicDictionary) {
-                        relatedTopics.append(topicParsed)
-                    }
+                if let topicDictionary = topic as? [String: Any],
+                    let topicParsed = DuckDuckGoTopic.decode(from: topicDictionary) {
+                    relatedTopics.append(topicParsed)
                 }
             }
             result.relatedTopics = relatedTopics
@@ -96,10 +95,9 @@ extension InstantAnswer {
         if let topics: [Any] = dictionary.parse(Keys.results.rawValue) {
             var relatedTopics: [DuckDuckGoTopic] = []
             for topic in topics {
-                if let topicDictionary = topic as? [String: Any] {
-                    if let topicParsed = DuckDuckGoTopic.decode(from: topicDictionary) {
-                        relatedTopics.append(topicParsed)
-                    }
+                if let topicDictionary = topic as? [String: Any],
+                    let topicParsed = DuckDuckGoTopic.decode(from: topicDictionary) {
+                    relatedTopics.append(topicParsed)
                 }
             }
             result.results = relatedTopics

@@ -29,14 +29,20 @@ extension DuckDuckGoTopic {
     }
     
     public static func decode(from dicitionary: [String: Any]) -> DuckDuckGoTopic? {
-        var result = DuckDuckGoTopic()
-        result.result = dicitionary.parse(Keys.result.rawValue)
-        result.firstURL = dicitionary.parseURL(Keys.firstURL.rawValue)
-        if let iconDictionary: [String: Any] = dicitionary.parse(Keys.icon.rawValue) {
-            result.icon = DuckDuckGoIcon.decode(from: iconDictionary)
+        var topic = DuckDuckGoTopic()
+        // Result is returned as <a href="http://url">Title</a>description
+        if let result: String = dicitionary.parse(Keys.result.rawValue),
+            let regex = try? NSRegularExpression(pattern: "(?<=\\>)(.*?)(?=\\<)", options: .anchorsMatchLines) {
+            let nsString = result as NSString
+            let results = regex.matches(in: result, range: NSRange(location: 0, length: nsString.length))
+            topic.result = results.map { nsString.substring(with: $0.range)}.first
         }
-        result.text = dicitionary.parse(Keys.text.rawValue)
-        return result
+        topic.firstURL = dicitionary.parseURL(Keys.firstURL.rawValue)
+        if let iconDictionary: [String: Any] = dicitionary.parse(Keys.icon.rawValue) {
+            topic.icon = DuckDuckGoIcon.decode(from: iconDictionary)
+        }
+        topic.text = dicitionary.parse(Keys.text.rawValue)
+        return topic
     }
     
 }
