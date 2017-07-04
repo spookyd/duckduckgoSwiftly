@@ -19,11 +19,17 @@ public struct DuckDuckGoIcon {
 
 extension DuckDuckGoIcon {
     
+    enum Keys: String {
+        case url    = "URL"
+        case height = "Height"
+        case width  = "Width"
+    }
+    
     public static func decode(from dictionary: [String: Any]) -> DuckDuckGoIcon? {
         var result = DuckDuckGoIcon()
-        result.url = dictionary.parseURL("URL")
-        result.height = dictionary.parse("Height")
-        result.width = dictionary.parse("Width")
+        result.url = dictionary.parseURL(Keys.url.rawValue)
+        result.height = dictionary.parse(Keys.height.rawValue)
+        result.width = dictionary.parse(Keys.width.rawValue)
         return result
     }
     

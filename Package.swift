@@ -3,5 +3,8 @@
 import PackageDescription
 
 let package = Package(
-    name: "DuckDuckGoSwiftly"
+    name: "DuckDuckGoSwiftly",
+    targets: [
+        Target(name: "DuckDuckGoSwiftly")
+    ]
 )

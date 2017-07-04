@@ -47,7 +47,7 @@ public class NetworkDispatcher: Dispatcher {
     public func execute(request: Request, closure: @escaping (Response) -> Void) {
         
         let queryString = request.queryParameters.buildQueryString()
-        guard let url = URL(string: "\(request.urlString)?\(queryString)") else {
+        guard let url = URL(string: "\(environment.host)/\(request.urlString)?\(queryString)") else {
             closure(.failure(NetworkDispatcherError.invalidURL(string: request.urlString)))
             return
         }
@@ -71,13 +71,8 @@ extension Dictionary {
         return self.map {
             "\($0)=\($1)"
             }.reduce("") {
-                if $0.characters.count == 0 {
-                    return "\($0)\($1)"
-                } else {
-                    return "\($0)&\($1)"
-                }
+                $0.characters.count == 0 ? "\($1)" : "\($0)&\($1)"
         }
-
     }
 
 }

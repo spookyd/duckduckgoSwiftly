@@ -11,7 +11,7 @@ import Nimble
 import Quick
 
 class DuckDuckGoSpec: QuickSpec {
-    override func spec() {
+    override func spec() { // swiftlint:disable:this function_body_length
 
         describe("a Duck Duck Go Request") {
             var duckDuckGo: DuckDuckGo!

@@ -11,7 +11,7 @@ import Nimble
 import Quick
 
 class InstantAnswerRequestSpec: QuickSpec {
-    override func spec() {
+    override func spec() { // swiftlint:disable:this function_body_length
         describe("Instant Answer Request") {
             var request: InstantAnswerRequest!
             describe("init") {
