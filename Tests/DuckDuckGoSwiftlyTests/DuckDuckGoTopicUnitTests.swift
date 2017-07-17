@@ -27,7 +27,8 @@ class DuckDuckGoTopicUnitTests: XCTestCase {
 
     func testDecode() {
         let actual = DuckDuckGoTopic.decode(from: dictionary)
-        XCTAssertTrue((dictionary[DuckDuckGoTopic.Keys.result.rawValue] as? String)?.contains(actual?.result ?? "") ?? false)
+        let actualResult = dictionary[DuckDuckGoTopic.Keys.result.rawValue] as? String
+        XCTAssertTrue(actualResult?.contains(actual?.result ?? "") ?? false)
         XCTAssertEqual(dictionary[DuckDuckGoTopic.Keys.firstURL.rawValue] as? String, actual?.firstURL?.absoluteString)
         XCTAssertEqual(dictionary[DuckDuckGoTopic.Keys.text.rawValue] as? String, actual?.text)
     }

@@ -11,7 +11,7 @@ import Nimble
 import Quick
 
 class ResponseSpecTests: QuickSpec {
-    override func spec() { // swiftlint:disable:this function_body_length
+    override func spec() { // swiftlint:disable:this function_body_length cyclomatic_complexity
         describe("Response") {
             var response: Response!
             var networkResponse: (data: Data?, urlResponse: URLResponse?, error: Error?)!

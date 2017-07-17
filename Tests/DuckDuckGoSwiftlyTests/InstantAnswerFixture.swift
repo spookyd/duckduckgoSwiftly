@@ -45,7 +45,7 @@ struct ValidDictionary {
             DuckDuckGoTopic.Keys.icon.rawValue: self.makeDuckDuckGoIcon()
         ]
     }
-    
+
     func makeDuckDuckGoCategory() -> [String: Any] {
         return [
             DuckDuckGoCategory.Keys.name.rawValue: UUID().uuidString,
