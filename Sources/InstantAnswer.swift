@@ -40,6 +40,7 @@ public struct InstantAnswer {
     public var definitionSource: String?
     public var definitionURL: URL?
     public var relatedTopics: [DuckDuckGoTopic] = []
+    public var relatedCategories: [DuckDuckGoCategory] = []
     public var results: [DuckDuckGoTopic] = []
     public var type: DuckDuckGoType?
     public var redirect: URL?
@@ -82,25 +83,13 @@ extension InstantAnswer {
         result.definition = dictionary.parse(Keys.definition.rawValue)
         result.definitionSource = dictionary.parse(Keys.definitionSource.rawValue)
         result.definitionURL = dictionary.parseURL(Keys.definitionURL.rawValue)
-        if let topics: [Any] = dictionary.parse(Keys.relatedTopics.rawValue) {
-            var relatedTopics: [DuckDuckGoTopic] = []
-            for topic in topics {
-                if let topicDictionary = topic as? [String: Any],
-                    let topicParsed = DuckDuckGoTopic.decode(from: topicDictionary) {
-                    relatedTopics.append(topicParsed)
-                }
-            }
-            result.relatedTopics = relatedTopics
+        if let topics: [[String: Any]] = dictionary.parse(Keys.relatedTopics.rawValue) {
+            // TODO: This should be optomized since the flatmaps will iterate the same list twice.
+            result.relatedTopics = topics.flatMap({ DuckDuckGoTopic.decode(from: $0) })
+            result.relatedCategories = topics.flatMap({ DuckDuckGoCategory.decode(from: $0) })
         }
-        if let topics: [Any] = dictionary.parse(Keys.results.rawValue) {
-            var relatedTopics: [DuckDuckGoTopic] = []
-            for topic in topics {
-                if let topicDictionary = topic as? [String: Any],
-                    let topicParsed = DuckDuckGoTopic.decode(from: topicDictionary) {
-                    relatedTopics.append(topicParsed)
-                }
-            }
-            result.results = relatedTopics
+        if let topics: [[String: Any]] = dictionary.parse(Keys.results.rawValue) {
+            result.results = topics.flatMap({ DuckDuckGoTopic.decode(from: $0) })
         }
         if let shortName: String = dictionary.parse(Keys.type.rawValue) {
             result.type = DuckDuckGoType.fromString(shortName)

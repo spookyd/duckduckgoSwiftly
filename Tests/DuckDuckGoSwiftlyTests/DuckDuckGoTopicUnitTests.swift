@@ -25,9 +25,12 @@ class DuckDuckGoTopicUnitTests: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testDecode() {
+        let actual = DuckDuckGoTopic.decode(from: dictionary)
+        let actualResult = dictionary[DuckDuckGoTopic.Keys.result.rawValue] as? String
+        XCTAssertTrue(actualResult?.contains(actual?.result ?? "") ?? false)
+        XCTAssertEqual(dictionary[DuckDuckGoTopic.Keys.firstURL.rawValue] as? String, actual?.firstURL?.absoluteString)
+        XCTAssertEqual(dictionary[DuckDuckGoTopic.Keys.text.rawValue] as? String, actual?.text)
     }
 
 }
