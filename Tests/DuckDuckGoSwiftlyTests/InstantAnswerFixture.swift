@@ -40,9 +40,20 @@ struct ValidDictionary {
 
     func makeDuckDuckGoTopic() -> [String: Any] {
         return [
-            DuckDuckGoTopic.Keys.result.rawValue: UUID().uuidString,
+            DuckDuckGoTopic.Keys.result.rawValue: "<a href=\"http://url\">\(UUID().uuidString)</a>",
             DuckDuckGoTopic.Keys.firstURL.rawValue: "http://duckduckgo.com",
             DuckDuckGoTopic.Keys.icon.rawValue: self.makeDuckDuckGoIcon()
+        ]
+    }
+    
+    func makeDuckDuckGoCategory() -> [String: Any] {
+        return [
+            DuckDuckGoCategory.Keys.name.rawValue: UUID().uuidString,
+            DuckDuckGoCategory.Keys.topics.rawValue: [
+                makeDuckDuckGoTopic(),
+                makeDuckDuckGoTopic(),
+                makeDuckDuckGoTopic()
+            ]
         ]
     }
 

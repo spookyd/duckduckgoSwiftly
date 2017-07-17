@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		844C79401F1C415D00B010D4 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8461A86A1F06DBDD00A6C4CA /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		844C79411F1C415D00B010D4 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8461A86B1F06DBDD00A6C4CA /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		844C79441F1C479200B010D4 /* DuckDuckGoCategoryUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C79421F1C473900B010D4 /* DuckDuckGoCategoryUnitTests.swift */; };
 		8461A86C1F06DBDD00A6C4CA /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8461A86A1F06DBDD00A6C4CA /* Nimble.framework */; };
 		8461A86D1F06DBDD00A6C4CA /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8461A86B1F06DBDD00A6C4CA /* Quick.framework */; };
-		8461A8711F06DE7A00A6C4CA /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8461A86F1F06DE7A00A6C4CA /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8461A8721F06DE7A00A6C4CA /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8461A8701F06DE7A00A6C4CA /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8467E5B81F0C36B800D67C1B /* DuckDuckGoCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467E5B71F0C36B800D67C1B /* DuckDuckGoCategory.swift */; };
 		OBJ_41 /* DuckDuckDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* DuckDuckDispatcher.swift */; };
 		OBJ_42 /* DuckDuckGo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* DuckDuckGo.swift */; };
 		OBJ_43 /* DuckDuckGoIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* DuckDuckGoIcon.swift */; };
@@ -53,18 +55,18 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8461A8711F06DE7A00A6C4CA /* Nimble.framework in CopyFiles */,
-				8461A8721F06DE7A00A6C4CA /* Quick.framework in CopyFiles */,
+				844C79401F1C415D00B010D4 /* Nimble.framework in CopyFiles */,
+				844C79411F1C415D00B010D4 /* Quick.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		844C79421F1C473900B010D4 /* DuckDuckGoCategoryUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuckDuckGoCategoryUnitTests.swift; sourceTree = "<group>"; };
 		8461A86A1F06DBDD00A6C4CA /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		8461A86B1F06DBDD00A6C4CA /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
-		8461A86F1F06DE7A00A6C4CA /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		8461A8701F06DE7A00A6C4CA /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		8467E5B71F0C36B800D67C1B /* DuckDuckGoCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuckDuckGoCategory.swift; sourceTree = "<group>"; };
 		OBJ_10 /* DuckDuckGoIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckDuckGoIcon.swift; sourceTree = "<group>"; };
 		OBJ_11 /* DuckDuckGoTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckDuckGoTopic.swift; sourceTree = "<group>"; };
 		OBJ_12 /* DuckDuckGoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckDuckGoType.swift; sourceTree = "<group>"; };
@@ -123,6 +125,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8467E5B91F0C36CF00D67C1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_13 /* InstantAnswer.swift */,
+				8467E5B71F0C36B800D67C1B /* DuckDuckGoCategory.swift */,
+				OBJ_11 /* DuckDuckGoTopic.swift */,
+				OBJ_10 /* DuckDuckGoIcon.swift */,
+				OBJ_12 /* DuckDuckGoType.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		OBJ_17 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +152,7 @@
 				OBJ_20 /* DictionaryQueryParameterUnitTests.swift */,
 				OBJ_21 /* DuckDuckGoIconUnitTests.swift */,
 				OBJ_22 /* DuckDuckGoSpecTests.swift */,
+				844C79421F1C473900B010D4 /* DuckDuckGoCategoryUnitTests.swift */,
 				OBJ_23 /* DuckDuckGoTopicUnitTests.swift */,
 				OBJ_24 /* DuckDuckGoTypeUnitTests.swift */,
 				OBJ_25 /* Foundation+Extensions.swift */,
@@ -161,11 +176,9 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				8461A86F1F06DE7A00A6C4CA /* Nimble.framework */,
-				8461A8701F06DE7A00A6C4CA /* Quick.framework */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_17 /* Tests */,
@@ -173,18 +186,14 @@
 				OBJ_33 /* Products */,
 				8461A8691F06DBDC00A6C4CA /* Frameworks */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_8 /* DuckDuckDispatcher.swift */,
+				8467E5B91F0C36CF00D67C1B /* Model */,
 				OBJ_9 /* DuckDuckGo.swift */,
-				OBJ_10 /* DuckDuckGoIcon.swift */,
-				OBJ_11 /* DuckDuckGoTopic.swift */,
-				OBJ_12 /* DuckDuckGoType.swift */,
-				OBJ_13 /* InstantAnswer.swift */,
+				OBJ_8 /* DuckDuckDispatcher.swift */,
 				OBJ_14 /* InstantAnswerRequest.swift */,
 				OBJ_15 /* Response.swift */,
 				OBJ_16 /* ResultParser.swift */,
@@ -244,7 +253,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_33 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,6 +270,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_41 /* DuckDuckDispatcher.swift in Sources */,
+				8467E5B81F0C36B800D67C1B /* DuckDuckGoCategory.swift in Sources */,
 				OBJ_42 /* DuckDuckGo.swift in Sources */,
 				OBJ_43 /* DuckDuckGoIcon.swift in Sources */,
 				OBJ_44 /* DuckDuckGoTopic.swift in Sources */,
@@ -283,6 +293,7 @@
 				OBJ_60 /* DuckDuckGoTopicUnitTests.swift in Sources */,
 				OBJ_61 /* DuckDuckGoTypeUnitTests.swift in Sources */,
 				OBJ_62 /* Foundation+Extensions.swift in Sources */,
+				844C79441F1C479200B010D4 /* DuckDuckGoCategoryUnitTests.swift in Sources */,
 				OBJ_63 /* InstantAnswerFixture.swift in Sources */,
 				OBJ_64 /* InstantAnswerRequestSpecTests.swift in Sources */,
 				OBJ_65 /* InstantAnswerUnitTests.swift in Sources */,
@@ -333,6 +344,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DuckDuckGoSwiftly.xcodeproj/DuckDuckGoSwiftly_Info.plist;
@@ -354,6 +366,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DuckDuckGoSwiftly.xcodeproj/DuckDuckGoSwiftly_Info.plist;
