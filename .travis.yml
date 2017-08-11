@@ -14,7 +14,7 @@ before_script:
 script:
     - xcodebuild clean build test -project DuckDuckGoSwiftly.xcodeproj -scheme DuckDuckGoSwiftly -destination 'platform=iOS Simulator,name=iPhone 6,OS=11.0'
 before_deploy:
-  - carthage build --no-skip-current
+  - carthage build --no-skip-current --platform all
   - carthage archive $FRAMEWORK_NAME
 deploy:
   provider: releases
